@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title data-ng-controller="messagesProperty">{{messages.title}}</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<script src="js/productList.js"></script>
+<script src="js/categories.js"></script>
+
+</head>
+
+<body>
+<div data-ng-controller="listOfProdutsProperty">
+	
+	<div  id="container"  data-ng-controller="categoriesController"  >
+
+		<div  id="searchBy"   >
+		
+		<div   id="dropDown"   >  
+		<p  id="dropDown_name">{{listOfProduts.type}}</p>
+            <select  id="prodType" class="prodType" data-ng-model="selectedType"  
+                data-ng-options="type as type for type  in types"  
+                data-ng-change="getGenres()">
+               <option data-ng-value="">{{listOfProduts.select}}</option>  
+            </select>
+           <p id="dropDown_name">{{listOfProduts.genre}}</p>
+            <select id="genre" class="genre" data-ng-model="selectedGenre" data-ng-disabled="!genres"  
+                data-ng-options="genre as genre for genre in genres"
+                data-ng-change="getProductListDropDown()"
+                >  
+          <option value="">{{listOfProduts.select}}</option>  
+            </select>   
+        </div>  
+			
+				
+		
+			<div   id="search">
+				<div>
+					<input data-ng-model="selectedText" class="text" id="text" type="text" size="20"
+						/> <input data-ng-click="getProductListSearch()"
+						class="text" id="text_search" type="submit" 
+						data-ng-value="listOfProduts.search" />
+				</div>
+			</div>
+		</div>
+		
+		
+				<div  id="productList" >
+					<h1>{{messages.header}}</h1>
+					<table >
+						<tr>
+							<th></th>
+							<th>{{main.tableColumn2}}</th>
+							<th>{{main.tableColumn3}}</th>
+							<th>{{main.tableColumn4}}</th>
+						</tr>
+						
+						<tr data-ng-repeat="product in productList"  data-ng-class="{selected: product.isChecked}">
+						<td><input type="checkbox" id="product" name="product" data-ng-value="product"  data-ng-model="product.isChecked" /></td>
+						<td> <input type="hidden" id="product" name="product" data-ng-value="product.type" data-ng-model="entity.isCheckeds"/>{{product.type}}</td>
+						<td> <input type="hidden" id="product" name="product" data-ng-value="product.genre" data-ng-model="entity.isCheckeds"/>{{product.genre}}</td>
+						<td> <input type="hidden" id="product" name="product" data-ng-value="product.name"  data-ng-model="entity.isCheckeds"/>{{product.name}}</td>
+					</tr>
+					
+					</table>
+					<div id="addToCart"  >
+					<input data-ng-click="addToCart()"
+						class="text" id="text_search" type="submit" 
+						data-ng-value="listOfProduts.shoppingCart" />
+					</div>
+					<div  id="pagination">
+						<a data-ng-if="page > 1" href="#getList/page/1"
+							> first </a> &nbsp;<a
+							data-ng-if="page > 1" href="#getList/page/{{page-1}}"
+							>
+							previous </a> &nbsp;<a data-ng-if="page < pageCount" 
+							data-ng-repeat="pageNumber in [page+1, pageCount]| makeRange"
+							href="#getList/page/{{pageNumber}}"
+							>{{pageNumber}}&nbsp; </a> &nbsp; <a data-ng-if="page < pageCount"
+							href="#getList/page/{{page+1}}">
+							next  </a> &nbsp;<a data-ng-if="page < pageCount" href="#getProductList/page/{{pageCount}}"
+							>last </a>
+					</div>
+				</div>
+			</div>
+	
+	
+	</div>
+</body>
+</html>
+

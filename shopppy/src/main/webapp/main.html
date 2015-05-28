@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title data-ng-controller="messagesProperty">{{messages.title}}</title>
+</head>
+ 
+<body >
+	<div id="newItems" >
+	<h2>{{main.information}}</h2>
+		
+				<h1>{{main.tableHeader}}</h1>
+				<table>
+					<tr>
+						<th>{{main.tableColumn2}}</th>
+						<th>{{main.tableColumn3}}</th>
+						<th>{{main.tableColumn4}}</th>
+					</tr>
+					<tr data-ng-repeat="product in productList"  >
+						<td >{{product.type}}</td>
+						<td >{{product.genre}}</td>
+						<td >{{product.name}}</td>
+					</tr>
+				</table>
+			</div>
+</body>
+</html>

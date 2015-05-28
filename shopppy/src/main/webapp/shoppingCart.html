@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title data-ng-controller="messagesProperty">{{messages.title}}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<script type="text/javascript" src="js/shoppingCart.js">
+</script>
+
+</head>
+
+<body  >
+<div data-ng-controller="shoppingCartProperty">
+	<h1 >{{shoppingCart.shoppingCart}}</h1>
+	
+	<table>
+		<tr  data-ng-controller="messagesProperty">
+			<th>{{messages.tableColumn2}}</th>
+			<th>{{messages.tableColumn3}}</th>
+		    <th>{{messages.tableColumn4}}</th>
+			<th >{{shoppingCart.tableColumn5}}</th>
+			<td></td>
+		</tr>
+		<tr data-ng-repeat="product in cartProducts" >
+						<td data-ng-value="product.type">{{product.type}}</td>
+						<td data-ng-value="product.genre">{{product.genre}}</td>
+						<td data-ng-value="product.name" >{{product.name}}</td>
+						<td data-ng-value="product.quantity" >{{product.quantity}}</td>
+					
+			<td>
+<input data-ng-click="removeProduct($index)"
+						class="text" id="removeProductButton" type="submit" 
+						data-ng-value="shoppingCart.removeProduct" />
+				
+			
+		</td>
+		</tr>
+	</table></div>
+	
+</body>
+</html>
+

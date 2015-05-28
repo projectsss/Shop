@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html data-ng-app="shopApp">
+<head>
+<title data-ng-controller="messagesProperty">{{messages.title}}</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css"
+	media="screen"></link>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+<script src="js/main.js">
+	
+</script>
+
+</head>
+
+<body>
+
+	<div id="container" data-ng-controller="mainProperty">
+		<div id="header" data-ng-controller="messagesProperty">
+			<h1>{{messages.header}}</h1>
+		</div>
+		<div class="menu" id="menu">
+
+			<p>
+			<form action="#">
+				<button id="toMainPageButton" type="submit">{{main.main}}</button>
+			</form>
+			</p>
+
+			<br />
+			<p>
+			<form action="#Catalogue">
+				<button id="toProductListButton" type="submit">{{main.catalogue}}</button>
+			</form>
+			</p>
+			<br />
+			<form action="#ShoppingCart">
+				<button id="toShoppingCartButton" type="submit">{{main.shoppingCart}}</button>
+			</form>
+			<br />
+		</div>
+		<div data-ng-view="" data-ng-controller="mainProperty" id="content">
+		</div>
+		<div id="footer">{{main.footer}}</div>
+	</div>
+</body>
+</html>
